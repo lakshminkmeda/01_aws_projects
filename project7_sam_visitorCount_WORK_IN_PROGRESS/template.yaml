@@ -1,0 +1,53 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+
+Description: >
+  My Web Counter Backend
+  Website visitor counter SAM project
+
+
+Globals:
+  Api:
+    Cors:
+      AllowMethods: "'GET, POST, OPTIONS'"
+      AllowHeaders: "'content-type'"
+      AllowOrigin: "'*'"
+      AllowCredentials: "'*'"
+  
+  Function: 
+      Timeout: 3
+
+Resources:
+  VisitorCountFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: Lambda/
+      Handler: app.lambda_handler
+      Runtime: python3.8
+      Events:
+        VisitorCount:
+          Type: Api
+          Properties:
+            Path: /visitor_count
+            Method: get
+      Environment:
+        Variables:
+          ddbTableName: VisitorCount
+
+Outputs:
+  VisitorCountApi:
+    Description: "API Gateway endpoint URL for prod stage for Visitor Count function"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/visitor_count/"
+
+    #Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/visitor_count/"
+#  VisitorCountFunction:
+ #   Description: "Visitor Count Lambda Function ARN"
+  #  Value: !GetAtt VisitorCountFunction.Arn"
+   # Value: !GetAtt VisitorCountFunction.Arn
+#  VisitorCountIamRole:
+ #   Description: "Implicit IAM Role for Visitor Count Function"
+  #  Value: !GetAtt VisitorCountFunctionRole.Arn"
+   # Value: !GetAtt VisitorCountFunctionRole.Arn
+
+
+

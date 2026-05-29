@@ -1,0 +1,12 @@
+# Local .terraform directories
+**/.terraform/*
+# Keys and .pem files
+**/.keys/*
+
+# .tfstate, .pem files
+*.tfstate
+*.tfstate.*
+*.pem
+
+# Crash log files
+crash.log

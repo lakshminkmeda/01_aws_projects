@@ -1,0 +1,74 @@
+# Normalize text files automatically
+
+* text=auto
+
+# Force LF endings for Linux/Cloud/DevOps files
+
+*.sh text eol=lf
+*.bash text eol=lf
+*.zsh text eol=lf
+
+# Terraform
+
+*.tf text eol=lf
+*.tfvars text eol=lf
+
+# Kubernetes / YAML
+
+*.yml text eol=lf
+*.yaml text eol=lf
+
+# Docker
+
+Dockerfile text eol=lf
+*.dockerfile text eol=lf
+
+# Node.js / JavaScript
+
+*.js text eol=lf
+*.mjs text eol=lf
+*.cjs text eol=lf
+*.json text eol=lf
+
+# TypeScript
+
+*.ts text eol=lf
+
+# Python
+
+*.py text eol=lf
+
+# Java
+
+*.java text eol=lf
+*.gradle text eol=lf
+*.xml text eol=lf
+
+# Markdown / Docs
+
+*.md text eol=lf
+*.txt text eol=lf
+
+# GitHub Actions
+
+.github/** text eol=lf
+
+# Ignore line ending normalization for binaries
+
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.pdf binary
+*.zip binary
+*.jar binary
+*.war binary
+*.tar binary
+*.gz binary
+
+# Windows scripts should use CRLF
+
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
