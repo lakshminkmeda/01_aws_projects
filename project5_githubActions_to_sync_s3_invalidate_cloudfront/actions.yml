@@ -5,6 +5,3 @@ author: lakshminkmeda
 runs:
   using: docker
   image: Dockerfile
-branding:
-  icon: refresh-cw
-  color: green
